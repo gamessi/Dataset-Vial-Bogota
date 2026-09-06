@@ -1,5 +1,6 @@
 """
 USO: python3 main.py siniestros_viales_consolidados_bogota_dc.xlsx
+     py main.py siniestros_viales_consolidados_bogota_dc.xlsx
 Requisitos: pip install -r requirements.txt
 """
 

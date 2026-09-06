@@ -1,7 +1,7 @@
 # Dataset Vial Bogotá — Análisis de Siniestros Viales
 
-Programa en Python que procesa el histórico de siniestros viales en Bogotá.
-y genera automáticamente un reporte con gráficos y conclusiones en lenguaje natural
+Programa en Python que procesa el histórico de siniestros viales en Bogotá (2015-2020).
+Genera automáticamente un reporte con gráficos y conclusiones en lenguaje natural
 sobre patrones temporales, causas, vehículos y personas involucradas.
 
 ## Instalación
@@ -19,12 +19,11 @@ py main.py siniestros_viales_consolidados_bogota_dc.xlsx        # Windows
 ```
 
 El data set utilizado es un `.xlsx` con las hojas `SINIESTROS`, `ACTOR_VIAL`,
-`VEHICULOS`, `HIPOTESIS` y `DICCIONARIO`. Si falta alguna hoja o columna esperada,
-el script se detiene con un mensaje explicando exactamente qué falta.
+`VEHICULOS`, `HIPOTESIS` y `DICCIONARIO`. Si falta alguna hoja o columna esperada, el script se detiene con un mensaje explicando exactamente qué falta.
 
 ## Salida
 
-Al terminar de ejecutarse el programa generala una carpeta `reporte_siniestros/` que contendra:
+Al terminar de ejecutarse el programa generala una carpeta `reporte_siniestros/` que contendrá:
 
 - `tendencia_anual.png`
 - `patron_horario.png`
@@ -38,5 +37,5 @@ Al terminar de ejecutarse el programa generala una carpeta `reporte_siniestros/`
 
 ## Fuente de datos
 
-Los datos corresponden al histórico de siniestros viales de Bogotá D.C, disponibles públicamente en el portal de
+Los datos corresponden al histórico de siniestros viales en Bogotá, disponibles públicamente en:
 [Datos Abiertos Bogotá](https://datosabiertos.bogota.gov.co/).
