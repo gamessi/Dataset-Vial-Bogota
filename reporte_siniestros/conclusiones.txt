@@ -1,0 +1,13 @@
+CONCLUSIONES - SINIESTROS VIALES BOGOTA D.C.
+==================================================
+
+1. Los accidentes registrados por año disminuyó un 27.5% entre 2015 (31,341) y 2020 (22,709). Sin embargo, entre 2015 y 2019 el número se mantuvo relativamente estable (+11.6%); la caída fuerte ocurre en 2020, coincidiendo con los confinamientos por COVID-19, por lo que no debe leerse como una tendencia sostenida de mejora.
+2. La hora con más accidentes es a las 14:00, concentrando 12,987 registros históricos. Esto suele coincidir con horas pico de tráfico en la ciudad de Bogotá.
+3. El día de la semana con más accidentes es el Viernes, con 31,537 registros.
+4. La localidad con más siniestros es 'Kennedy', con 22,282 accidentes registrados en el periodo (11.4% del total).
+5. Entre localidades con al menos 100 accidentes registrados, 'Usme' tiene la mayor proporción de accidentes con muertos respecto a su total 3.15% de sus accidentes son fatales.
+6. La causa más frecuente de siniestros es 'No mantener distancia de seguridad (conductor en general)', presente en 51,673 registros de hipoteticos accidentes.
+7. El tipo de vehículo más involucrado en siniestros es 'Automovil' (152,964 casos), seguido de 'Motocicleta' (52,290 casos).
+8. Entre las personas heridas o fallecidas la condición más frecuente es 'Motociclista' (29,832 casos), lo que indica el grupo más vulnerable en los siniestros.
+9. 'Peaton' tiene la tasa de mortalidad más alta entre actores viales (6.11%) de los registros de esa condición terminan en muerte.
+10. El 73.4% de las víctimas mortales son de sexo 'masculino'.
