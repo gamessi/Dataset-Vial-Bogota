@@ -1,7 +1,7 @@
 # Análisis geográfico: qué localidades concentran más siniestros y cuáles son más letales
 import matplotlib.pyplot as plt
-from graficos import guardar
-from config import MIN_ACCIDENTES_PARA_TASA
+from src.graficos import guardar
+from src.config import MIN_ACCIDENTES_PARA_TASA
 
 
 def analizar(siniestros, carpeta):

@@ -1,0 +1,43 @@
+"""Funciones para generar el resumen general y las métricas del proyecto."""
+
+
+def obtener_metricas(siniestros, actores, vehiculos):
+    """Calcula las métricas principales del conjunto de datos."""
+
+    metricas = {
+        "accidentes": len(siniestros),
+        "personas": len(actores),
+        "vehiculos": len(vehiculos),
+        "fecha_inicio": siniestros["FECHA"].min(),
+        "fecha_fin": siniestros["FECHA"].max(),
+    }
+
+    return metricas
+
+
+def imprimir(siniestros, actores, vehiculos):
+    """Imprime el resumen general en consola."""
+
+    print("RESUMEN GENERAL:")
+
+    print(f"Total de accidentes registrados: {len(siniestros):,}")
+    print(f"Total de personas involucradas: {len(actores):,}")
+    print(f"Total de vehículos involucrados: {len(vehiculos):,}")
+
+    print(
+        f"Periodo cubierto: "
+        f"{siniestros['FECHA'].min().date()} a "
+        f"{siniestros['FECHA'].max().date()}"
+    )
+
+    print()
+
+    print("Distribución por gravedad:")
+
+    print(
+        siniestros["GRAVEDAD_DESC"]
+        .value_counts()
+        .to_string(name=False, dtype=False)
+    )
+
+    print()

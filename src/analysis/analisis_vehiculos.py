@@ -1,6 +1,6 @@
 """Análisis de los tipos de vehículo más involucrados en siniestros."""
 import matplotlib.pyplot as plt
-from graficos import guardar
+from src.graficos import guardar
 
 
 def analizar(vehiculos, carpeta):

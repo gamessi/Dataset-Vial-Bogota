@@ -1,7 +1,7 @@
 """Análisis de las causas (hipótesis) más frecuentes de los siniestros."""
 
 import matplotlib.pyplot as plt
-from graficos import guardar
+from src.graficos import guardar
 
 
 def analizar(hipotesis, carpeta):

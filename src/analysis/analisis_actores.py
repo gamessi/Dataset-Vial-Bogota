@@ -2,7 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from graficos import guardar
+from src.graficos import guardar
 
 
 def analizar(actores, carpeta):
