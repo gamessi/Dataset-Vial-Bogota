@@ -24,7 +24,7 @@ def _evolucion_anual(siniestros, carpeta):
     tendencia = "aumentó" if cambio_total > 0 else "disminuyó"
 
     # 2020 tuvo confinamientos por COVID-19 que distorsionan la lectura de "tendencia":
-    # se compara aparte 2015->2019 para no confundir un evento atípico con una mejora sostenida.
+    # se compara aparte 2015-2019 para no confundir un evento atipico.
     nota_covid = ""
     if 2019 in por_anio.index and 2015 in por_anio.index:
         cambio_pre_covid = (por_anio.loc[2019] - por_anio.loc[2015]) / por_anio.loc[2015] * 100
@@ -35,8 +35,16 @@ def _evolucion_anual(siniestros, carpeta):
         )
 
     plt.figure(figsize=(9, 5))
-    por_anio.plot(kind="line", marker="o", label="Total accidentes")
-    fatales.plot(kind="line", marker="o", label="Con muertos")
+    por_anio.plot(
+    kind="line",
+    marker="o",
+    color=COLOR_AZUL,
+    label="Total accidentes")
+    fatales.plot(
+    kind="line",
+    marker="o",
+    color=COLOR_ROJO,
+    label="Con muertos")
     plt.title("Evolución anual de siniestros viales en Bogotá")
     plt.xlabel("Año")
     plt.ylabel("Número de accidentes")
@@ -55,7 +63,9 @@ def _patron_horario(siniestros, carpeta):
     hora_pico = por_hora.idxmax()
 
     plt.figure(figsize=(9, 5))
-    por_hora.plot(kind="bar", color="steelblue")
+    por_hora.plot(
+    kind="bar",
+    color=COLOR_AZUL)
     plt.title("Accidentes por hora del día")
     plt.xlabel("Hora")
     plt.ylabel("Número de accidentes")
@@ -72,7 +82,9 @@ def _patron_dia_semana(siniestros, carpeta):
     dia_pico = DIAS_ES[por_dia.idxmax()]
 
     plt.figure(figsize=(9, 5))
-    por_dia.rename(index=DIAS_ES).plot(kind="bar", color="indianred")
+    por_dia.rename(index=DIAS_ES).plot(
+    kind="bar",
+    color=COLOR_VERDE)
     plt.title("Accidentes por día de la semana")
     plt.ylabel("Número de accidentes")
     guardar("patron_dia_semana.png", carpeta)

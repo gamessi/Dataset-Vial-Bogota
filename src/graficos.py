@@ -1,103 +1,164 @@
-""" utilidades compartidas para generar graficos y tarjetas"""
+"""Utilidades compartidas para generar y guardar gráficos."""
 
 import os
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Paleta de colores del proyecto
-COLOR_FONDO = "#F8FAFC"
-COLOR_AZUL = "#2563EB"
-COLOR_VERDE = "#0F766E"
-COLOR_ROJO = "#DC2626"
-COLOR_TEXTO = "#1F2937"
+
+# Paleta de colores estilo GitHub
+COLOR_FONDO = "#0D1117"
+COLOR_TARJETA = "#161B22"
+COLOR_BORDE = "#30363D"
+
+COLOR_AZUL = "#58A6FF"
+COLOR_VERDE = "#3FB950"
+COLOR_ROJO = "#F85149"
+
+COLOR_TEXTO = "#F0F6FC"
 
 sns.set_theme(style="whitegrid")
 
 
 def guardar(nombre_archivo, carpeta):
-    """ ajusta el layout y guarda la figura actual de matplotlib """
+    """Ajusta el gráfico y lo guarda en la carpeta de salida."""
 
     os.makedirs(carpeta, exist_ok=True)
 
     plt.tight_layout()
+
     plt.savefig(
         os.path.join(carpeta, nombre_archivo),
         dpi=150,
         bbox_inches="tight"
     )
+
     plt.close()
 
 
 def generar_tarjetas(metricas, carpeta):
-    """ genera una imagen con tarjetas de indicadores principales """
+    """Genera las tarjetas con los indicadores principales."""
 
-    fig, axes = plt.subplots(1, 5, figsize=(16, 3.5))
+    fig, axes = plt.subplots(
+        1,
+        5,
+        figsize=(16, 3),
+        facecolor=COLOR_FONDO
+    )
 
     tarjetas = [
         (
-            "TOTAL DE\nACCIDENTES",
-            f"{metricas['accidentes']:,}"
+            "TOTAL DE ACCIDENTES",
+            f"{metricas['accidentes']:,}",
+            COLOR_AZUL
         ),
         (
-            "PERSONAS\nINVOLUCRADAS",
-            f"{metricas['personas']:,}"
+            "PERSONAS INVOLUCRADAS",
+            f"{metricas['personas']:,}",
+            COLOR_VERDE
         ),
         (
-            "VEHÍCULOS\nINVOLUCRADOS",
-            f"{metricas['vehiculos']:,}"
+            "VEHÍCULOS INVOLUCRADOS",
+            f"{metricas['vehiculos']:,}",
+            COLOR_ROJO
         ),
         (
-            "FECHA\nINICIAL",
-            metricas["fecha_inicio"].strftime("%d/%m/%Y")
+            "FECHA INICIAL",
+            metricas["fecha_inicio"].strftime("%d/%m/%Y"),
+            COLOR_AZUL
         ),
         (
-            "FECHA\nFINAL",
-            metricas["fecha_fin"].strftime("%d/%m/%Y")
+            "FECHA FINAL",
+            metricas["fecha_fin"].strftime("%d/%m/%Y"),
+            COLOR_VERDE
         ),
     ]
 
-    for ax, (titulo, valor) in zip(axes, tarjetas):
+    for ax, (titulo, valor, color) in zip(axes, tarjetas):
 
-        ax.set_facecolor("white")
+        # Fondo de la tarjeta
+        ax.set_facecolor(COLOR_TARJETA)
 
         # Borde de la tarjeta
         for spine in ax.spines.values():
             spine.set_visible(True)
-            spine.set_linewidth(1.5)
+            spine.set_color(COLOR_BORDE)
+            spine.set_linewidth(1.2)
+
+        # Línea superior de color
+        ax.plot(
+            [0, 1],
+            [1, 1],
+            transform=ax.transAxes,
+            color=color,
+            linewidth=5,
+            solid_capstyle="butt"
+        )
 
         # Título
         ax.text(
-            0.5,
+            0.08,
             0.72,
             titulo,
-            ha="center",
+            ha="left",
             va="center",
-            fontsize=11,
+            fontsize=9,
             fontweight="bold",
+            color="#8B949E",
             transform=ax.transAxes
         )
 
         # Valor principal
         ax.text(
-            0.5,
-            0.38,
+            0.08,
+            0.42,
             valor,
-            ha="center",
+            ha="left",
             va="center",
-            fontsize=20,
+            fontsize=21,
             fontweight="bold",
+            color=COLOR_TEXTO,
             transform=ax.transAxes
         )
 
+        # Indicador de color
+        ax.scatter(
+            0.91,
+            0.82,
+            s=45,
+            color=color,
+            transform=ax.transAxes
+        )
+
+        # Eliminar ejes
         ax.set_xticks([])
         ax.set_yticks([])
 
+    # Título del dashboard
     fig.suptitle(
-        "Dashboard - Siniestros Viales Bogotá D.C.",
-        fontsize=16,
+        "Dashboard — Siniestros Viales Bogotá D.C.",
+        fontsize=18,
         fontweight="bold",
-        y=1.05
+        color=COLOR_TEXTO,
+        y=0.98
     )
 
-    guardar("tarjetas_metricas.png", carpeta)
+    plt.subplots_adjust(
+        left=0.02,
+        right=0.98,
+        top=0.78,
+        bottom=0.08,
+        wspace=0.06
+    )
+
+    os.makedirs(carpeta, exist_ok=True)
+
+    plt.savefig(
+        os.path.join(carpeta, "tarjetas_metricas.png"),
+        dpi=150,
+        bbox_inches="tight",
+        facecolor=COLOR_FONDO
+    )
+
+    plt.close()
+

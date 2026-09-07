@@ -1,8 +1,8 @@
-"""Funciones para generar el resumen general y las métricas del proyecto."""
+""" muestra el resumen general y las metricas del proyecto """
 
 
 def obtener_metricas(siniestros, actores, vehiculos):
-    """Calcula las métricas principales del conjunto de datos."""
+    """ calcula las metricas principales del conjunto de datos """
 
     metricas = {
         "accidentes": len(siniestros),
@@ -16,7 +16,7 @@ def obtener_metricas(siniestros, actores, vehiculos):
 
 
 def imprimir(siniestros, actores, vehiculos):
-    """Imprime el resumen general en consola."""
+    """ imprime el resumen general en consola """
 
     print("RESUMEN GENERAL:")
 
