@@ -87,7 +87,7 @@ def generar_tarjetas(metricas, carpeta):
         ax.set_yticks([])
 
     fig.suptitle(
-        "INDICADORES GENERALES - SINIESTROS VIALES BOGOTÁ D.C.",
+        "Dashboard - Siniestros Viales Bogotá D.C.",
         fontsize=16,
         fontweight="bold",
         y=1.05
