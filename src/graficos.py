@@ -1,4 +1,4 @@
-"""Utilidades compartidas para generar y guardar gráficos."""
+""" utilidades compartidas para generar y guardar graficos """
 
 import os
 
@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# Paleta de colores estilo GitHub
+# paleta de colores
 COLOR_FONDO = "#0D1117"
 COLOR_TARJETA = "#161B22"
 COLOR_BORDE = "#30363D"
@@ -21,7 +21,7 @@ sns.set_theme(style="whitegrid")
 
 
 def guardar(nombre_archivo, carpeta):
-    """Ajusta el gráfico y lo guarda en la carpeta de salida."""
+    """ ajusta el grafico y lo guarda en la carpeta de salida """
 
     os.makedirs(carpeta, exist_ok=True)
 
@@ -37,7 +37,7 @@ def guardar(nombre_archivo, carpeta):
 
 
 def generar_tarjetas(metricas, carpeta):
-    """Genera las tarjetas con los indicadores principales."""
+    """ genera las tarjetas con los indicadores principales """
 
     fig, axes = plt.subplots(
         1,
@@ -76,16 +76,16 @@ def generar_tarjetas(metricas, carpeta):
 
     for ax, (titulo, valor, color) in zip(axes, tarjetas):
 
-        # Fondo de la tarjeta
+        # fondo de la tarjeta
         ax.set_facecolor(COLOR_TARJETA)
 
-        # Borde de la tarjeta
+        # borde de la tarjeta
         for spine in ax.spines.values():
             spine.set_visible(True)
             spine.set_color(COLOR_BORDE)
             spine.set_linewidth(1.2)
 
-        # Línea superior de color
+        # linea superior de color
         ax.plot(
             [0, 1],
             [1, 1],
@@ -95,7 +95,7 @@ def generar_tarjetas(metricas, carpeta):
             solid_capstyle="butt"
         )
 
-        # Título
+        # titulo
         ax.text(
             0.08,
             0.72,
@@ -108,7 +108,7 @@ def generar_tarjetas(metricas, carpeta):
             transform=ax.transAxes
         )
 
-        # Valor principal
+        # valor principal
         ax.text(
             0.08,
             0.42,
@@ -121,7 +121,7 @@ def generar_tarjetas(metricas, carpeta):
             transform=ax.transAxes
         )
 
-        # Indicador de color
+        # indicador de color
         ax.scatter(
             0.91,
             0.82,
@@ -130,13 +130,13 @@ def generar_tarjetas(metricas, carpeta):
             transform=ax.transAxes
         )
 
-        # Eliminar ejes
+        # eliminar ejes
         ax.set_xticks([])
         ax.set_yticks([])
 
-    # Título del dashboard
+    # titulo del dashboard
     fig.suptitle(
-        "Dashboard — Siniestros Viales Bogotá D.C.",
+        "Dashboard",
         fontsize=18,
         fontweight="bold",
         color=COLOR_TEXTO,

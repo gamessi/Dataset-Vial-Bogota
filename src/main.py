@@ -56,21 +56,21 @@ def generar_reporte(ruta_archivo):
         diccionario
     )
 
-    # Mostrar resumen general
+    # mostrar resumen general
     resumen.imprimir(
         siniestros,
         actores,
         vehiculos
     )
 
-    # Obtener métricas para las tarjetas
+    # obtener metricas para las tarjetas
     metricas = resumen.obtener_metricas(
         siniestros,
         actores,
         vehiculos
     )
 
-    # Generar tarjetas de indicadores
+    # generar tarjetas de indicadores
     graficos.generar_tarjetas(
         metricas,
         CARPETA_SALIDA
@@ -126,10 +126,8 @@ def _imprimir_y_guardar_conclusiones(conclusiones):
     with open(ruta_txt, "w", encoding="utf-8") as f:
 
         f.write(
-            "CONCLUSIONES - SINIESTROS VIALES BOGOTA D.C.\n"
+            "CONCLUSIONES\n"
         )
-
-        f.write("=" * 50 + "\n\n")
 
         for i, c in enumerate(conclusiones, 1):
             f.write(f"{i}. {c}\n")
