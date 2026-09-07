@@ -1,10 +1,10 @@
-#  Dataset Vial Bogotá — Análisis de Siniestros Viales
+#  Dataset Vial Bogotá
 
-> **Análisis exploratorio del histórico de siniestros viales registrados en Bogotá D.C. entre 2015 y 2020.**
+> **Dashboard de análisis de siniestralidad vial en Bogotá entre (2015-2020), desarrollado con Python.**
 
-Este proyecto desarrollado en **Python** procesa y analiza un conjunto de datos de siniestros viales de Bogotá para identificar patrones relacionados con el **tiempo, localidades, causas, vehículos y personas involucradas**.
+Este proyecto procesa y analiza un conjunto de datos de siniestros viales de Bogotá para identificar patrones relacionados con el **tiempo, localidades, causas, vehículos y personas involucradas**.
 
-El programa genera automáticamente gráficos estadísticos y conclusiones en lenguaje natural, permitiendo obtener una visión general de los principales comportamientos presentes en los datos.
+El programa genera automáticamente gráficos estadísticos y conclusiones en lenguaje natural, permitiendo obtener una visión general de los principales comportamientos de los datos.
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
@@ -15,25 +15,9 @@ El programa genera automáticamente gráficos estadísticos y conclusiones en le
 
 ## Dashboard
 
-El proyecto genera un resumen visual con los principales indicadores del conjunto de datos:
+Genera un resumen visual con los principales indicadores del conjunto de datos:
 
 ![Dashboard](reporte_siniestros/tarjetas_metricas.png)
-
----
-
-## ¿Qué hace el proyecto?
-
-El programa permite:
-
-* Analizar la evolución de los siniestros por año.
-* Identificar las horas con mayor cantidad de accidentes.
-* Analizar los días de la semana con mayor frecuencia de siniestros.
-* Identificar las localidades con mayor número de accidentes.
-* Encontrar las causas más frecuentes.
-* Analizar los tipos de vehículos más involucrados.
-* Analizar las personas involucradas en los siniestros.
-* Analizar la distribución de edad de las personas afectadas.
-* Generar conclusiones automáticas a partir de los resultados.
 
 ---
 
@@ -101,7 +85,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶Uso
+## Uso
 
 ```bash
 py -m src.main data/siniestros_viales_consolidados_bogota_dc.xlsx
@@ -144,7 +128,6 @@ https://datosabiertos.bogota.gov.co/
 ## Autor
 
 **Camilo Gámez**
-
-Estudiante de Ingeniería de Sistemas.
+    *Estudiante de Ingeniería de Sistemas.*
 
 ⭐ Si este proyecto te resulta interesante, puedes darle una estrella al repositorio.
