@@ -1,7 +1,7 @@
-"""Patrones temporales: evolución anual, hora del día y día de la semana."""
+""" patrones temporales: evolucion anual, hora y dia de la semana."""
 
 import matplotlib.pyplot as plt
-from src.graficos import guardar
+from src.graficos import guardar, COLOR_AZUL, COLOR_ROJO, COLOR_VERDE
 
 DIAS_ES = {"Monday": "Lunes", "Tuesday": "Martes", "Wednesday": "Miércoles",
            "Thursday": "Jueves", "Friday": "Viernes", "Saturday": "Sábado", "Sunday": "Domingo"}

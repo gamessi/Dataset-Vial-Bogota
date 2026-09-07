@@ -1,14 +1,16 @@
-"""Análisis de las causas (hipótesis) más frecuentes de los siniestros."""
+""" (hipótesis) de las causas mas frecuentes de los siniestros."""
 
 import matplotlib.pyplot as plt
-from src.graficos import guardar
+from src.graficos import guardar, COLOR_VERDE
 
 
 def analizar(hipotesis, carpeta):
     top_causas = hipotesis["CAUSA_DESC"].value_counts().head(10)
 
     plt.figure(figsize=(10, 7))
-    top_causas.plot(kind="barh", color="seagreen")
+    top_causas.plot(
+    kind="barh",
+    color=COLOR_VERDE)
     plt.title("Top 10 causas más frecuentes de siniestros")
     plt.xlabel("Número de casos")
     plt.gca().invert_yaxis()

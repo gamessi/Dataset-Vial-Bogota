@@ -1,15 +1,22 @@
-"""Utilidades compartidas para generar gráficos y tarjetas."""
+""" utilidades compartidas para generar graficos y tarjetas"""
 
 import os
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Paleta de colores del proyecto
+COLOR_FONDO = "#F8FAFC"
+COLOR_AZUL = "#2563EB"
+COLOR_VERDE = "#0F766E"
+COLOR_ROJO = "#DC2626"
+COLOR_TEXTO = "#1F2937"
+
 sns.set_theme(style="whitegrid")
 
 
 def guardar(nombre_archivo, carpeta):
-    """Ajusta el layout y guarda la figura actual de matplotlib."""
+    """ ajusta el layout y guarda la figura actual de matplotlib """
 
     os.makedirs(carpeta, exist_ok=True)
 
@@ -23,7 +30,7 @@ def guardar(nombre_archivo, carpeta):
 
 
 def generar_tarjetas(metricas, carpeta):
-    """Genera una imagen con tarjetas de indicadores principales."""
+    """ genera una imagen con tarjetas de indicadores principales """
 
     fig, axes = plt.subplots(1, 5, figsize=(16, 3.5))
 

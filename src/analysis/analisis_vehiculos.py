@@ -1,13 +1,15 @@
-"""Análisis de los tipos de vehículo más involucrados en siniestros."""
+""" analisis de los tipos de vehiculo más involucrados en siniestros """
 import matplotlib.pyplot as plt
-from src.graficos import guardar
+from src.graficos import guardar, COLOR_AZUL
 
 
 def analizar(vehiculos, carpeta):
     top_clase = vehiculos["CLASE_DESC"].value_counts().head(10)
 
     plt.figure(figsize=(10, 7))
-    top_clase.plot(kind="barh", color="mediumpurple")
+    top_clase.plot(
+    kind="barh",
+    color=COLOR_AZUL)
     plt.title("Top 10 tipos de vehículo involucrados en siniestros")
     plt.xlabel("Número de casos")
     plt.gca().invert_yaxis()

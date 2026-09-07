@@ -1,6 +1,6 @@
-# Análisis geográfico: qué localidades concentran más siniestros y cuáles son más letales
+''' analisis geografico: que localidades concentran mas siniestros y cuales son mas letales '''
 import matplotlib.pyplot as plt
-from src.graficos import guardar
+from src.graficos import guardar, COLOR_AZUL
 from src.config import MIN_ACCIDENTES_PARA_TASA
 
 
@@ -17,7 +17,9 @@ def analizar(siniestros, carpeta):
     conclusiones.append(_localidad_mas_letal(siniestros, por_localidad))
 
     plt.figure(figsize=(9, 7))
-    por_localidad.head(10).plot(kind="barh", color="darkorange")
+    por_localidad.head(10).plot(
+    kind="barh",
+    color=COLOR_AZUL)
     plt.title("Top 10 localidades con más siniestros")
     plt.xlabel("Número de accidentes")
     plt.gca().invert_yaxis()

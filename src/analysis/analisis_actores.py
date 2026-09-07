@@ -1,8 +1,8 @@
-# Análisis de las personas involucradas: rol, mortalidad, sexo y edad.
+''' analisis de personas involucradas: rol, mortalidad, sexo y edad '''
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from src.graficos import guardar
+from src.graficos import guardar, COLOR_ROJO, COLOR_VERDE
 
 
 def analizar(actores, carpeta):
@@ -52,20 +52,28 @@ def _mayoria_sexo_fallecidos(actores):
 
 def _graficar_actores_afectados(graves, carpeta):
     plt.figure(figsize=(9, 5))
-    graves["CONDICION"].value_counts().plot(kind="bar", color="crimson")
+    graves["CONDICION"].value_counts().plot(
+    kind="bar",
+    color=COLOR_ROJO
+    )
     plt.title("Personas heridas o fallecidas por condición (rol) en el siniestro")
     plt.ylabel("Número de personas")
     guardar("actores_afectados.png", carpeta)
 
 
 def _graficar_distribucion_edad(graves, carpeta):
-    # EDAD viene con tipos mixtos (numero y NULL) en el data set, se fuerza a numérico.
+    # EDAD viene con tipos mixtos (numero y 'NULL') en el data set, se fuerza a numérico.
     graves = graves.copy()
     graves["EDAD"] = pd.to_numeric(graves["EDAD"], errors="coerce")
     edades_validas = graves[(graves["EDAD"] > 0) & (graves["EDAD"] < 100)]
 
     plt.figure(figsize=(9, 5))
-    sns.histplot(edades_validas["EDAD"], bins=30, kde=True, color="teal")
+    sns.histplot(
+    edades_validas["EDAD"],
+    bins=30,
+    kde=True,
+    color=COLOR_VERDE
+)
     plt.title("Distribución de edad de heridos y fallecidos")
     plt.xlabel("Edad")
     guardar("distribucion_edad.png", carpeta)
