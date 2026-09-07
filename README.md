@@ -10,7 +10,6 @@ El programa genera automáticamente gráficos estadísticos y conclusiones en le
 ![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)
 ![Seaborn](https://img.shields.io/badge/Seaborn-Visualization-4C72B0?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Activo-2EA44F?style=for-the-badge)
 
 ---
 
@@ -19,8 +18,6 @@ El programa genera automáticamente gráficos estadísticos y conclusiones en le
 El proyecto genera un resumen visual con los principales indicadores del conjunto de datos:
 
 ![Dashboard](reporte_siniestros/tarjetas_metricas.png)
-
-También se generan diferentes gráficos para analizar los siniestros desde varias perspectivas.
 
 ---
 
@@ -42,17 +39,17 @@ El programa permite:
 
 ## Lenguaje y librerias utilizadas
 
-| Tecnología           | Uso                               |
-| -------------------- | --------------------------------- |
-| 🐍 **Python**        | Lenguaje principal                |
-| 🐼 **Pandas**        | Procesamiento y análisis de datos |
-| 📊 **Matplotlib**    | Generación de gráficos            |
-| 📈 **Seaborn**       | Visualización estadística         |
-| 📁 **Excel (.xlsx)** | Fuente de datos                   |
+| Tecnología         | Uso                               |
+| -------------------| --------------------------------- |
+|  **Python**        | Lenguaje principal                |
+|  **Pandas**        | Procesamiento y análisis de datos |
+|  **Matplotlib**    | Generación de gráficos            |
+|  **Seaborn**       | Visualización estadística         |
+|  **Excel (.xlsx)** | Fuente de datos                   |
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```text
 Dataset-Vial-Bogota/
@@ -110,22 +107,6 @@ pip install -r requirements.txt
 py -m src.main data/siniestros_viales_consolidados_bogota_dc.xlsx
 ```
 
-El programa cargará el conjunto de datos, realizará los análisis y generará automáticamente los resultados.
-
-### 📌 Formato de los datos
-
-El archivo utilizado es un `.xlsx` que contiene las siguientes hojas:
-
-```text
-SINIESTROS
-ACTOR_VIAL
-VEHICULOS
-HIPOTESIS
-DICCIONARIO
-```
-
-El programa también valida la información de entrada. Si falta alguna hoja o columna necesaria, se detiene y muestra un mensaje indicando qué elemento falta.
-
 ---
 
 ## Resultados
@@ -152,7 +133,7 @@ Dentro se encuentran los siguientes resultados:
 | `conclusiones.txt`      | Principales hallazgos obtenidos automáticamente |
 
 
-## 📚 Fuente de datos
+## Fuente de datos
 
 Los datos utilizados corresponden al histórico de siniestros viales de Bogotá D.C. y se encuentran disponibles públicamente en:
 
