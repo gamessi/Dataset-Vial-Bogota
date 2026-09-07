@@ -81,7 +81,7 @@ def generar_reporte(ruta_archivo):
     conclusiones += analisis_temporal.analizar(
         siniestros,
         CARPETA_SALIDA
-    )
+)
 
     conclusiones += analisis_localidades.analizar(
         siniestros,

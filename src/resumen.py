@@ -16,12 +16,13 @@ def obtener_metricas(siniestros, actores, vehiculos):
 
 
 def imprimir(siniestros, actores, vehiculos):
-    """ imprime el resumen general en consola """
+    """ imprime el resumen en consola """
 
-    print("RESUMEN GENERAL:")
+    print()
+    print("Resumen general:")
 
     print(f"Total de accidentes registrados: {len(siniestros):,}")
-    print(f"Total de personas involucradas: {len(actores):,}")
+    print(f"Total de personas involucradas:  {len(actores):,}")
     print(f"Total de vehículos involucrados: {len(vehiculos):,}")
 
     print(

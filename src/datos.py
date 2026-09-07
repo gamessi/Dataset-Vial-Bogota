@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def cargar_datos(ruta):
     """Lee las 5 hojas del archivo y las devuelve como DataFrames separados."""
     xls = pd.ExcelFile(ruta)

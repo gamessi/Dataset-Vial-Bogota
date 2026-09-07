@@ -11,7 +11,7 @@ def analizar(siniestros, carpeta):
     top = por_localidad.index[0]
     conclusiones.append(
         f"La localidad con más siniestros es '{top}', con {por_localidad.iloc[0]:,} "
-        f"accidentes registrados en el periodo ({por_localidad.iloc[0] / len(siniestros) * 100:.1f}% del total)."
+        f"accidentes, ({por_localidad.iloc[0] / len(siniestros) * 100:.1f}% del total)."
     )
 
     conclusiones.append(_localidad_mas_letal(siniestros, por_localidad))
