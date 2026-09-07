@@ -23,7 +23,7 @@ El data set utilizado es un `.xlsx` con las hojas `SINIESTROS`, `ACTOR_VIAL`,
 
 ## Salida
 
-Al terminar de ejecutarse el programa generala una carpeta `reporte_siniestros/` que contendrá:
+Al terminar de ejecutarse el programa generará la carpeta `reporte_siniestros/` que contendrá gráficos estadísticos:
 
 - `tendencia_anual.png`
 - `patron_horario.png`
@@ -34,6 +34,10 @@ Al terminar de ejecutarse el programa generala una carpeta `reporte_siniestros/`
 - `actores_afectados.png`
 - `distribucion_edad.png`
 - `conclusiones.txt` — un pequeño resumen de los hallazgos automáticos.
+
+## Capturas
+
+![Dashboard](assets/screenshots/dashboard.png)
 
 ## Fuente de datos
 
