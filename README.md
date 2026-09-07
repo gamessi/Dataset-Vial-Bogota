@@ -37,7 +37,7 @@ Al terminar de ejecutarse el programa generará la carpeta `reporte_siniestros/`
 
 ## Capturas
 
-![Dashboard](assets/screenshots/dashboard.png)
+![Dashboard](reporte_siniestros/tarjetas_metricas.png)
 
 ## Fuente de datos
 
