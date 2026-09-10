@@ -25,11 +25,6 @@ def imprimir(siniestros, actores, vehiculos):
     print(f"Total de personas involucradas:  {len(actores):,}")
     print(f"Total de vehículos involucrados: {len(vehiculos):,}")
 
-    print(
-        f"Periodo cubierto: "
-        f"{siniestros['FECHA'].min().date()} a "
-        f"{siniestros['FECHA'].max().date()}"
-    )
 
     print()
 

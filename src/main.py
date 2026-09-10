@@ -1,10 +1,3 @@
-"""
-USO: python3 main.py siniestros_viales_consolidados_bogota_dc.xlsx
-     py main.py siniestros_viales_consolidados_bogota_dc.xlsx
-
-Requisitos: pip install -r requirements.txt
-"""
-
 import sys
 import os
 import warnings
@@ -30,7 +23,7 @@ import src.analysis.analisis_localidades as analisis_localidades
 import src.analysis.analisis_causas as analisis_causas
 import src.analysis.analisis_vehiculos as analisis_vehiculos
 import src.analysis.analisis_actores as analisis_actores
-
+import src.analysis.analisis_mapa_calor as analisis_mapa_calor
 
 def generar_reporte(ruta_archivo):
 
@@ -100,6 +93,11 @@ def generar_reporte(ruta_archivo):
 
     conclusiones += analisis_actores.analizar(
         actores,
+        CARPETA_SALIDA
+    )
+
+    conclusiones += analisis_mapa_calor.analizar(
+        siniestros,
         CARPETA_SALIDA
     )
 

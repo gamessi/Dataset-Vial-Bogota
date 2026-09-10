@@ -69,7 +69,8 @@ Dataset-Vial-Bogota/
 │
 ├── .gitignore
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── LICENSE
 ```
 
 ---
@@ -77,6 +78,11 @@ Dataset-Vial-Bogota/
 ## Instalación
 
 Clona el repositorio y entra en la carpeta del proyecto.
+
+```bash
+git clone https://github.com/gamessi/Dataset-Vial-Bogota
+```
+
 Después instala las dependencias:
 
 ```bash
