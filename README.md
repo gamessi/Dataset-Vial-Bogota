@@ -125,11 +125,15 @@ Dentro se encuentran los siguientes resultados:
 
 ## Fuente de datos
 
-Los datos utilizados corresponden al histórico de siniestros viales de Bogotá D.C. y se encuentran disponibles públicamente en:
+Los datos utilizados no son de mi propiedad, se encuentran públicamente en:
 
-**Datos Abiertos Bogotá**
+**Dataset: Datos Abiertos Bogotá**
 
 https://datosabiertos.bogota.gov.co/
+
+**GeoJSON: Laboratorio Urbano Bogotá**
+
+https://bogota-laburbano.opendatasoft.com/explore/dataset/poligonos-localidades/table/
 
 ## Autor
 
