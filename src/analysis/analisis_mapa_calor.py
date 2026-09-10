@@ -81,7 +81,7 @@ def _agregar_etiquetas(mapa, ax):
             punto.y,
             fila[COLUMNA_NOMBRE_GEOJSON].title(),
             fontsize=tamano_letra,
-            fontweight="normal",
+            fontweight="bold",
             ha="center",
             va="center",
             color="black",
