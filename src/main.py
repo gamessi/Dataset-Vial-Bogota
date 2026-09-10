@@ -24,6 +24,13 @@ import src.analysis.analisis_causas as analisis_causas
 import src.analysis.analisis_vehiculos as analisis_vehiculos
 import src.analysis.analisis_actores as analisis_actores
 import src.analysis.analisis_mapa_calor as analisis_mapa_calor
+import src.analysis.analisis_servicio as analisis_servicio
+
+
+
+
+
+
 
 def generar_reporte(ruta_archivo):
 
@@ -98,6 +105,11 @@ def generar_reporte(ruta_archivo):
 
     conclusiones += analisis_mapa_calor.analizar(
         siniestros,
+        CARPETA_SALIDA
+    )
+
+    conclusiones += analisis_servicio.analizar(
+        vehiculos,
         CARPETA_SALIDA
     )
 

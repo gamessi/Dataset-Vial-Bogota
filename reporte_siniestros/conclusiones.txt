@@ -10,3 +10,5 @@ CONCLUSIONES
 9. 'Peaton' tiene la tasa de mortalidad más alta entre actores viales (6.11%) de los registros de esa condición terminan en muerte.
 10. El 73.4% de las víctimas mortales son de sexo 'masculino'.
 11. En el mapa por localidad, 'Kennedy' concentra la mayor cantidad de siniestros con 22,282 casos.
+12. El 56.9% de los vehículos involucrados en siniestros son de servicio 'Particular' (202,405 casos).
+13. Los vehículos de servicio 'Oficial' tienen la mayor tasa de fuga tras el siniestro (21.5%), muy por encima del resto de tipos de servicio (0.2% en 'Publico').

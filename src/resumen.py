@@ -20,20 +20,20 @@ def imprimir(siniestros, actores, vehiculos):
 
     print()
     print("Resumen general:")
-
+ 
     print(f"Total de accidentes registrados: {len(siniestros):,}")
     print(f"Total de personas involucradas:  {len(actores):,}")
     print(f"Total de vehículos involucrados: {len(vehiculos):,}")
+ 
+    print()
 
+    for servicio, cantidad in vehiculos["SERVICIO_DESC"].value_counts().items():
+        print(f"{servicio}: {cantidad:,}")
 
     print()
 
-    print("Distribución por gravedad:")
-
-    print(
-        siniestros["GRAVEDAD_DESC"]
-        .value_counts()
-        .to_string(name=False, dtype=False)
-    )
+    for gravedad, cantidad in siniestros["GRAVEDAD_DESC"].value_counts().items():
+        print(f"{gravedad}: {cantidad:,}")
+    
 
     print()
