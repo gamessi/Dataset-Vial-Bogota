@@ -2,7 +2,7 @@ import pandas as pd
 
 def cargar_datos(ruta):
     """ lee las 5 hojas del archivo y las devuelve como DataFrames separados """
-    xls = pd.ExcelFile(ruta)
+    xls = pd.ExcelFile(ruta, engine="calamine")
     return (
         pd.read_excel(xls, sheet_name="SINIESTROS"),
         pd.read_excel(xls, sheet_name="ACTOR_VIAL"),
