@@ -1,17 +1,9 @@
-""" analisis_mapa_calor.py — mapa coroplético de accidentes por localidad """
 import re
 import unicodedata
-from typing import TYPE_CHECKING
 
-if TYPE_CHECKING:
-    import geopandas as gpd
-
+import geopandas as gpd
 import matplotlib.pyplot as plt
-
-try:
-    import geopandas as gpd
-except ImportError:  # pragma: no cover - dependency optional at analysis time
-    gpd = None
+import matplotlib.patheffects as path_effects
 
 from src.graficos import guardar
 from src.config import RUTA_GEOJSON_LOCALIDADES
@@ -20,9 +12,7 @@ COLUMNA_NOMBRE_GEOJSON = "Nombre de la localidad"
 
 
 def _normalizar(texto):
-    """Normaliza nombres de localidad para poder cruzar el dataset con el geojson:
-    sin tildes, en mayúsculas, sin espacios sobrantes y sin el artículo 'LA ' inicial
-    (el dataset suele decir 'La Candelaria' mientras el geojson solo dice 'Candelaria')."""
+    """ norrmaliza nombres del geojson y el dataset """
     if not isinstance(texto, str):
         return texto
     sin_tildes = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode("utf-8")
@@ -69,6 +59,30 @@ def _graficar_mapa(mapa, carpeta):
         legend=True,
         legend_kwds={"label": "Número de accidentes", "shrink": 0.6},
     )
-    ax.set_title("Accidentes de tránsito por localidad — Bogotá", fontsize=14, fontweight="bold")
+    ax.set_title("Mapa de calor de accidentes", fontsize=14, fontweight="bold")
     ax.axis("off")
+
+    _agregar_etiquetas(mapa, ax)
+
     guardar("mapa_calor_localidades.png", carpeta)
+
+
+def _agregar_etiquetas(mapa, ax):
+    areas = mapa.geometry.to_crs(epsg=3116).area
+    area_min, area_max = areas.min(), areas.max()
+
+    for (_, fila), area in zip(mapa.iterrows(), areas):
+        punto = fila.geometry.representative_point()
+        proporcion = (area - area_min) / (area_max - area_min) if area_max > area_min else 1
+        tamano_letra = 3 + proporcion * 6  # entre 5 (localidad más chica) y 11 (más grande)
+
+        texto = ax.text(
+            punto.x,
+            punto.y,
+            fila[COLUMNA_NOMBRE_GEOJSON].title(),
+            fontsize=tamano_letra,
+            fontweight="normal",
+            ha="center",
+            va="center",
+            color="black",
+        )

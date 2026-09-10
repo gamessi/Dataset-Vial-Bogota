@@ -1,7 +1,7 @@
 import pandas as pd
 
 def cargar_datos(ruta):
-    """Lee las 5 hojas del archivo y las devuelve como DataFrames separados."""
+    """ lee las 5 hojas del archivo y las devuelve como DataFrames separados """
     xls = pd.ExcelFile(ruta)
     return (
         pd.read_excel(xls, sheet_name="SINIESTROS"),
@@ -13,13 +13,13 @@ def cargar_datos(ruta):
 
 
 def _mapa_codigos(diccionario, hoja, campo):
-    """Extrae del DICCIONARIO un dict {codigo: descripcion} para una hoja/campo."""
+    """ extrae del DICCIONARIO un dict {codigo: descripcion} para una hoja/campo """
     sub = diccionario[(diccionario["HOJA"] == hoja) & (diccionario["CAMPO"] == campo)]
     return dict(zip(sub["CODIGO"], sub["DESCRIPCION"]))
 
 
 def decodificar(siniestros, vehiculos, hipotesis, diccionario):
-    """Traduce columnas codificadas a texto legible y añade columnas de fecha/hora."""
+    """ traduce columnas codificadas a texto legible y añade columnas de fecha/hora"""
     for campo in ["GRAVEDAD", "CLASE", "CHOQUE", "OBJETO_FIJO", "CODIGO_LOCALIDAD", "DISENO_LUGAR"]:
         siniestros[f"{campo}_DESC"] = siniestros[campo].map(_mapa_codigos(diccionario, "SINIESTROS", campo))
 
