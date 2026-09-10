@@ -59,7 +59,7 @@ def _graficar_mapa(mapa, carpeta):
         legend=True,
         legend_kwds={"label": "Número de accidentes", "shrink": 0.6},
     )
-    ax.set_title("Mapa de calor de accidentes", fontsize=14, fontweight="bold")
+    fig.suptitle("Mapa de calor de accidentes", fontsize=14, fontweight="bold", x=0.70)
     ax.axis("off")
 
     _agregar_etiquetas(mapa, ax)

@@ -1,4 +1,3 @@
-""" analisis de los tipos de vehiculo más involucrados en siniestros """
 import matplotlib.pyplot as plt
 from src.graficos import guardar, COLOR_AZUL
 

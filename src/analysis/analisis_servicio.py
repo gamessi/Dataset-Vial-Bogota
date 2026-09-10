@@ -1,4 +1,3 @@
-""" analisis del tipo de servicio del vehiculo: particular, publico, oficial, diplomatico """
 import matplotlib.pyplot as plt
 from src.graficos import guardar, COLOR_VERDE, COLOR_ROJO
 from src.config import MIN_ACCIDENTES_PARA_TASA
@@ -29,8 +28,8 @@ def analizar(vehiculos, carpeta):
 
 
 def _tasa_fuga_por_servicio(vehiculos, por_servicio, carpeta):
-    # Igual que con las localidades: solo se consideran tipos de servicio con muestra
-    # suficiente. 'Diplomatico' tiene muy pocos casos y una sola fuga distorsionaría la tasa.
+    # solo se consideran tipos de servicio con varias muestras
+    # 'Diplomatico' tiene muy pocos casos y una sola fuga distorsionaría la tasa.
     con_muestra_suficiente = por_servicio[por_servicio >= MIN_ACCIDENTES_PARA_TASA].index
 
     en_fuga = vehiculos[vehiculos["ENFUGA"] == "S"]["SERVICIO_DESC"].value_counts()
