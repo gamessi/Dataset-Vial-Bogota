@@ -5,7 +5,7 @@ CONCLUSIONES
 4. La localidad con más siniestros es 'Kennedy', con 22,282 accidentes, (11.4% del total).
 5. Entre localidades con al menos 100 accidentes registrados, 'Usme' tiene la mayor proporción de accidentes con muertos respecto a su total 3.15% de sus accidentes son fatales.
 6. La causa más frecuente de siniestros es 'No mantener distancia de seguridad (conductor en general)', presente en 51,673 registros de hipoteticos accidentes.
-7. El tipo de vehículo más involucrado en siniestros es 'Automovil' (152,964 casos), seguido de 'Motocicleta' (52,290 casos).
+7. El tipo de vehículo más involucrado en siniestros es 'Automovil' (152,964 casos), seguido de 'Motocicleta' (52,290 casos). 
 8. Entre las personas heridas o fallecidas la condición más frecuente es 'Motociclista' (29,832 casos), lo que indica el grupo más vulnerable en los siniestros.
 9. 'Peaton' tiene la tasa de mortalidad más alta entre actores viales (6.11%) de los registros de esa condición terminan en muerte.
 10. El 73.4% de las víctimas mortales son de sexo 'masculino'.
