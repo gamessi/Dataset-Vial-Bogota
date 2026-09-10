@@ -42,18 +42,19 @@ Dataset-Vial-Bogota/
 │   └── siniestros_viales_consolidados_bogota_dc.xlsx
 │
 ├── src/
-│   ├── main.py
 │   ├── config.py
 │   ├── datos.py
 │   ├── graficos.py
+│   ├── main.py
 │   ├── resumen.py
 │   │
 │   └── analysis/
-│       ├── analisis_temporal.py
-│       ├── analisis_localidades.py
+│       ├── analisis_actores.py
 │       ├── analisis_causas.py
-│       ├── analisis_vehiculos.py
-│       └── analisis_actores.py
+│       ├── analisis_localidades.py
+│       ├── analisis_mapa_calor.py
+│       ├── analisis_temporal.py
+│       └── analisis_vehiculos.py
 │
 ├── reporte_siniestros/
 │   ├── tarjetas_metricas.png
@@ -68,9 +69,9 @@ Dataset-Vial-Bogota/
 │   └── conclusiones.txt
 │
 ├── .gitignore
+├── LICENSE
 ├── README.md
-├── requirements.txt
-└── LICENSE
+└── requirements.txt
 ```
 
 ---
