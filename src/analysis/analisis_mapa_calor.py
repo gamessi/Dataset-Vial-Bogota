@@ -59,7 +59,7 @@ def _graficar_mapa(mapa, carpeta):
         legend=True,
         legend_kwds={"label": "Número de accidentes", "shrink": 0.6},
     )
-    ax.set_title("Mapa de calor de accidentes", fontsize=14, fontweight="bold")
+    ax.set_title("Mapa de calor de accidentes", fontsize=14, fontweight="bold", )
     ax.axis("off")
 
     _agregar_etiquetas(mapa, ax)
@@ -74,7 +74,7 @@ def _agregar_etiquetas(mapa, ax):
     for (_, fila), area in zip(mapa.iterrows(), areas):
         punto = fila.geometry.representative_point()
         proporcion = (area - area_min) / (area_max - area_min) if area_max > area_min else 1
-        tamano_letra = 3 + proporcion * 6  # entre 5 (localidad más chica) y 11 (más grande)
+        tamano_letra = 3 + proporcion * 9  # entre 5 (localidad más chica) y 11 (más grande)
 
         texto = ax.text(
             punto.x,
