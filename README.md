@@ -44,6 +44,7 @@ python src/main.py data/siniestros_viales_consolidados_bogota_dc.xlsx
 Los archivos se generan en la carpeta `reporte_siniestros/`:
 
 | Archivo                       | Análisis                                        |
+|---|---|
 | `tarjetas_metricas.png`       | Dasboard                                        |
 | `tendencia_anual.png`         | Evolución de siniestros por año                 |
 | `patron_horario.png`          | Distribución por hora del día                   |
@@ -90,7 +91,7 @@ Dataset-Vial-Bogota/
 │
 ├── reporte_siniestros/
 │   ├── conclusiones.txt   
-│   └── *.png conclusiones
+│   └── *.png
 │
 ├── requirements.txt
 ├── .gitignore
