@@ -58,19 +58,23 @@ def analizar(vehiculos, carpeta):
 
 """ calcula porcentaje de conductores que huyen segun el servicio """
 def _tasa_fuga_por_servicio(vehiculos, por_servicio, carpeta):
+    """ calcula porcentaje de fuga por servicio aclarando casos no identificados """
     con_muestra_suficiente = por_servicio[por_servicio >= MIN_ACCIDENTES_PARA_TASA].index
 
-    en_fuga = vehiculos[vehiculos["ENFUGA"] == "S"]["SERVICIO_DESC"].value_counts()
-    tasa = (en_fuga / por_servicio * 100).dropna()
+    fuga_total = len(vehiculos[vehiculos["ENFUGA"] == "S"])
+    sin_identificar = len(vehiculos[(vehiculos["ENFUGA"] == "S") & (vehiculos["SERVICIO_DESC"].isna())])
+
+    tasa = (vehiculos[vehiculos["ENFUGA"] == "S"]["SERVICIO_DESC"].value_counts() / por_servicio * 100).dropna()
     tasa = tasa[tasa.index.isin(con_muestra_suficiente)].sort_values(ascending=False)
 
     _graficar_tasa_fuga(tasa, carpeta)
 
     return (
-        f"Los vehículos de servicio '{tasa.index[0]}' tienen la mayor tasa de fuga tras el siniestro "
-        f"({tasa.iloc[0]:.1f}%), muy por encima del resto de tipos de servicio "
-        f"({tasa.iloc[1]:.1f}% en '{tasa.index[1]}')."
+        f"De {fuga_total:,} vehículos que huyeron tras siniestro, {sin_identificar:,} ({sin_identificar/fuga_total*100:.1f}%) "
+        f"no tienen servicio identificado por fuga instantánea. Entre los identificados, servicio '{tasa.index[0]}' "
+        f"registra {tasa.iloc[0]:.1f}% de fuga."
     )
+
 
 """ grafica porcentaje de fuga  """
 def _graficar_tasa_fuga(tasa, carpeta):

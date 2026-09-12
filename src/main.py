@@ -20,6 +20,7 @@ import src.analysis.analisis_localidades as analisis_localidades
 import src.analysis.analisis_causas as analisis_causas
 import src.analysis.analisis_vehiculos as analisis_vehiculos
 import src.analysis.analisis_actores as analisis_actores
+import src.analysis.analisis_sexo as analisis_sexo
 import src.analysis.analisis_mapa_calor as analisis_mapa_calor
 import src.analysis.analisis_servicio as analisis_servicio
 
@@ -90,6 +91,11 @@ def generar_reporte(ruta_archivo):
         CARPETA_SALIDA
     )
 
+    conclusiones += analisis_sexo.analizar(
+        actores,
+        CARPETA_SALIDA
+    )
+
     conclusiones += analisis_mapa_calor.analizar(
         siniestros,
         CARPETA_SALIDA
@@ -101,6 +107,7 @@ def generar_reporte(ruta_archivo):
     )
 
     _guardar_conclusiones(conclusiones)
+
 
     print(
         f"\nreporte y gráficos guardados en la carpeta: "

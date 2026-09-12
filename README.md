@@ -1,35 +1,63 @@
-#  Dataset Vial Bogotá
+# Dataset Vial Bogotá
 
-> **Dashboard de análisis de siniestralidad vial en Bogotá entre (2015-2020), desarrollado con Python.**
+> **Análisis de siniestralidad vial en Bogotá (2015–2020) desarrollado con Python.**
 
-Este proyecto procesa y analiza un conjunto de datos de siniestros viales de Bogotá para identificar patrones relacionados con el **tiempo, localidades, causas, vehículos y personas involucradas**.
-
-El programa genera automáticamente gráficos estadísticos y conclusiones en lenguaje natural, permitiendo obtener una visión general de los principales comportamientos de los datos.
-
-![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)
-![Seaborn](https://img.shields.io/badge/Seaborn-Visualization-4C72B0?style=for-the-badge)
+Procesa un conjunto de datos de siniestros viales para identificar patrones por **tiempo, localidades, causas, vehículos, actores y servicio vehicular**. Genera gráficos estadísticos y conclusiones automáticamente.
 
 ---
 
 ## Dashboard
 
-Genera un resumen visual con los principales indicadores del conjunto de datos:
-
 ![Dashboard](reporte_siniestros/tarjetas_metricas.png)
 
 ---
 
-## Lenguaje y librerias utilizadas
+## Instalación
 
-| Tecnología         | Uso                               |
-| -------------------| --------------------------------- |
-|  **Python**        | Lenguaje principal                |
-|  **Pandas**        | Procesamiento y análisis de datos |
-|  **Matplotlib**    | Generación de gráficos            |
-|  **Seaborn**       | Visualización estadística         |
-|  **Excel (.xlsx)** | Fuente de datos                   |
+```bash
+git clone https://github.com/gamessi/Dataset-Vial-Bogota
+pip install -r requirements.txt
+```
+
+---
+
+## Uso
+
+Con datos en parquet *(recomendado)*:
+
+```bash
+python src/main.py data/parquet
+```
+
+Con el archivo Excel original:
+
+```bash
+python src/main.py data/siniestros_viales_consolidados_bogota_dc.xlsx
+```
+
+> Al usar el archivo Excel por primera vez, el programa genera automáticamente los archivos `.parquet` en `data/parquet/` para acelerar ejecuciones futuras.
+
+---
+
+## Resultados
+
+Los archivos se generan en la carpeta `reporte_siniestros/`:
+
+| Archivo | Análisis |
+|---|---|
+| `tarjetas_metricas.png` | Indicadores generales (dashboard) |
+| `tendencia_anual.png` | Evolución de siniestros por año |
+| `patron_horario.png` | Distribución por hora del día |
+| `patron_dia_semana.png` | Distribución por día de la semana |
+| `top_localidades.png` | Localidades con más siniestros |
+| `mapa_calor_localidades.png` | Tasa de siniestros por localidad (mapa) |
+| `top_causas.png` | Causas más frecuentes |
+| `top_vehiculos.png` | Vehículos más involucrados |
+| `actores_afectados.png` | Personas afectadas por condición |
+| `distribucion_edad.png` | Distribución de edades de víctimas |
+| `distribucion_sexo_fallecidos.png` | Fallecidos por sexo |
+| `analisis_servicio.png` | Siniestros por tipo de servicio vehicular |
+| `conclusiones.txt` | Hallazgos principales generados automáticamente |
 
 ---
 
@@ -39,106 +67,58 @@ Genera un resumen visual con los principales indicadores del conjunto de datos:
 Dataset-Vial-Bogota/
 │
 ├── data/
-│   └── siniestros_viales_consolidados_bogota_dc.xlsx
+│   ├── siniestros_viales_consolidados_bogota_dc.xlsx
+│   ├── poligonos-localidades.geojson
+│   └── parquet/
+│       └── *.parquet
 │
 ├── src/
+│   ├── main.py
 │   ├── config.py
 │   ├── datos.py
 │   ├── graficos.py
-│   ├── main.py
 │   ├── resumen.py
 │   │
 │   └── analysis/
-│       ├── analisis_actores.py
-│       ├── analisis_causas.py
-│       ├── analisis_localidades.py
-│       ├── analisis_mapa_calor.py
 │       ├── analisis_temporal.py
-│       └── analisis_vehiculos.py
+│       ├── analisis_localidades.py
+│       ├── analisis_causas.py
+│       ├── analisis_vehiculos.py
+│       ├── analisis_actores.py
+│       ├── analisis_mapa_calor.py
+│       ├── analisis_servicio.py
+│       └── analisis_sexo.py
 │
 ├── reporte_siniestros/
-│   ├── tarjetas_metricas.png
-│   ├── tendencia_anual.png
-│   ├── patron_horario.png
-│   ├── patron_dia_semana.png
-│   ├── top_localidades.png
-│   ├── top_causas.png
-│   ├── top_vehiculos.png
-│   ├── actores_afectados.png
-│   ├── distribucion_edad.png
-│   └── conclusiones.txt
+│   └── *.png / conclusiones.txt
 │
+├── requirements.txt
 ├── .gitignore
 ├── LICENSE
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
 ---
 
-## Instalación
+## Tecnologías
 
-Clona el repositorio y entra en la carpeta del proyecto.
-
-```bash
-git clone https://github.com/gamessi/Dataset-Vial-Bogota
-```
-
-Después instala las dependencias:
-
-```bash
-pip install -r requirements.txt
-```
+| Librería | Uso |
+|---|---|
+| **Pandas** | Procesamiento y análisis de datos |
+| **Matplotlib** | Generación de gráficos |
+| **Seaborn** | Visualización estadística |
+| **GeoPandas** | Mapas de calor por localidad |
+| **PyArrow** | Lectura/escritura de archivos Parquet |
 
 ---
-
-## Uso
-
-```bash
-py -m src.main data/siniestros_viales_consolidados_bogota_dc.xlsx
-```
-
----
-
-## Resultados
-
-Al finalizar la ejecución se genera automáticamente la carpeta:
-
-```text
-reporte_siniestros/
-```
-
-Dentro se encuentran los siguientes resultados:
-
-| Archivo                 | Análisis                                        |
-| ----------------------- | ----------------------------------------------- |
-| `tarjetas_metricas.png` | Indicadores generales                           |
-| `tendencia_anual.png`   | Evolución de los siniestros por año             |
-| `patron_horario.png`    | Distribución por hora                           |
-| `patron_dia_semana.png` | Distribución por día                            |
-| `top_localidades.png`   | Localidades con más siniestros                  |
-| `top_causas.png`        | Causas más frecuentes                           |
-| `top_vehiculos.png`     | Vehículos más involucrados                      |
-| `actores_afectados.png` | Personas afectadas según su condición           |
-| `distribucion_edad.png` | Distribución de edades                          |
-| `conclusiones.txt`      | Principales hallazgos obtenidos automáticamente |
-
 
 ## Fuente de datos
 
-Los datos utilizados no son de mi propiedad, se encuentran públicamente en:
+- **Dataset:** [Datos Abiertos Bogotá](https://datosabiertos.bogota.gov.co/)
+- **GeoJSON:** [Laboratorio Urbano Bogotá](https://bogota-laburbano.opendatasoft.com/explore/dataset/poligonos-localidades/table/)
 
-**Dataset: Datos Abiertos Bogotá**
-
-https://datosabiertos.bogota.gov.co/
-
-**GeoJSON: Laboratorio Urbano Bogotá**
-
-https://bogota-laburbano.opendatasoft.com/explore/dataset/poligonos-localidades/table/
+---
 
 ## Autor
 
-**Camilo Gámez**
-    *Estudiante de Ingeniería de Sistemas.*
-
-⭐ Si este proyecto te resulta interesante, puedes darle una estrella al repositorio.
+**Camilo Gámez** — *Estudiante de Ingeniería de Sistemas*

@@ -8,8 +8,8 @@ CONCLUSIONES DEL REPORTE
 6. La causa más frecuente de siniestros es 'No mantener distancia de seguridad (conductor en general)', presente en 51,673 registros de hipoteticos accidentes.
 7. El tipo de vehículo más involucrado en siniestros es 'Automovil' (152,964 casos), seguido de 'Motocicleta' (52,290 casos). 
 8. Entre las personas heridas o fallecidas la condición más frecuente es 'Motociclista' (29,832 casos), lo que indica el grupo más vulnerable en los siniestros.
-9. 'Peaton' tiene la tasa de mortalidad más alta entre actores viales (6.11%) de los registros de esa condición terminan en muerte.
-10. El 73.4% de las víctimas mortales son de sexo 'masculino'.
+9. 'Peaton' tiene la tasa de letalidad más alta entre víctimas impactadas (6.11% de sus víctimas fallecen), seguido de 'Ciclista' (3.78%).
+10. El 78.9% de las víctimas mortales con género registrado son hombres (2,257 casos), frente al 21.1% de mujeres (602 casos).
 11. En el mapa por localidad, 'Kennedy' concentra la mayor cantidad de siniestros con 22,282 casos.
 12. El 56.9% de los vehículos involucrados en siniestros son de servicio 'Particular' (202,405 casos).
-13. Los vehículos de servicio 'Oficial' tienen la mayor tasa de fuga tras el siniestro (21.5%), muy por encima del resto de tipos de servicio (0.2% en 'Publico').
+13. De 5,277 vehículos que huyeron tras siniestro, 2,781 (52.7%) no tienen servicio identificado por fuga instantánea. Entre los identificados, servicio 'Oficial' registra 21.5% de fuga.

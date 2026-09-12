@@ -1,14 +1,11 @@
-""" calculo de indicadores globales y metricas ejecutivas de siniestralidad """
-
-
+""" calcula indicadores para el dashboard """
 def obtener_metricas(siniestros, actores, vehiculos):
-    """ calcula indicadores consolidados para el dashboard de control """
     total_accidentes = len(siniestros)
     total_personas = len(actores)
     total_vehiculos = len(vehiculos)
 
-    """ desglose de gravedad del siniestro """
-    solo_danos = len(siniestros[siniestros["GRAVEDAD_DESC"] == "Solo Daños"])
+    """ desglose de gravedad del siniestro con variantes de codificacion """
+    solo_danos = len(siniestros[siniestros["GRAVEDAD_DESC"].astype(str).str.contains("Da", na=False)])
     con_heridos = len(siniestros[siniestros["GRAVEDAD_DESC"] == "Con Heridos"])
     con_muertos = len(siniestros[siniestros["GRAVEDAD_DESC"] == "Con Muertos"])
 
@@ -16,9 +13,10 @@ def obtener_metricas(siniestros, actores, vehiculos):
     fallecidos = len(actores[actores["ESTADO"] == "MUERTO"])
     heridos = len(actores[actores["ESTADO"] == "HERIDO"])
 
-    """ desglose de servicios de vehiculos """
-    particulares = len(vehiculos[vehiculos["SERVICIO_DESC"] == "Particular"])
-    publicos = len(vehiculos[vehiculos["SERVICIO_DESC"] == "Público"])
+    """ desglose de servicios de vehiculos tolerante a tildes """
+    particulares = len(vehiculos[vehiculos["SERVICIO_DESC"].astype(str).str.upper().str.contains("PARTICULAR")])
+    publicos = len(vehiculos[vehiculos["SERVICIO_DESC"].astype(str).str.upper().str.contains("PUBLIC")])
+
 
     metricas = {
         "accidentes": total_accidentes,
@@ -36,11 +34,11 @@ def obtener_metricas(siniestros, actores, vehiculos):
 
     return metricas
 
-
+""" imprime el resumen en consola con datos """
 def imprimir(siniestros, actores, vehiculos):
-    """ imprime el resumen en consola con datos """
     print()
     print("Resumen general:")
+    print()
     print(f"Total de accidentes registrados: {len(siniestros):,}")
     print(f"Total de personas involucradas:  {len(actores):,}")
     print(f"Total de vehículos involucrados: {len(vehiculos):,}")

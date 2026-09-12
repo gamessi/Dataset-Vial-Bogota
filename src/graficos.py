@@ -3,28 +3,28 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-""" paleta de colores para reportes visuales """
+""" paleta de colores para graficos """
 COLOR_FONDO = "#0D1117"
 COLOR_TARJETA = "#161B22"
 COLOR_BORDE = "#30363D"
-
 COLOR_AZUL = "#2F81F7"
 COLOR_AZUL_CLARO = "#79C0FF"
 COLOR_VERDE = "#3FB950"
 COLOR_ROJO = "#F85149"
+COLOR_ROSA = "#FD4B80"
 COLOR_AMARILLO = "#D29922"
 COLOR_NEUTRO = "#8B949E"
 COLOR_BARRAS_DEFECTO = "#58A6FF"
 COLOR_TEXTO = "#F0F6FC"
 COLOR_TEXTO_OSCURO = "#24292F"
 
-""" configuracion de estilo base """
+""" configuracion de estilo """
 sns.set_theme(style="whitegrid")
 plt.rcParams["font.sans-serif"] = "DejaVu Sans"
 plt.rcParams["font.family"] = "sans-serif"
 
 
-""" ajusta el grafico y lo guarda con alta resolucion """
+""" ajusta el grafico y lo guarda """
 def guardar(nombre_archivo, carpeta):
     os.makedirs(carpeta, exist_ok=True)
     plt.tight_layout()
@@ -35,7 +35,7 @@ def guardar(nombre_archivo, carpeta):
     )
     plt.close()
 
-""" aplica titulos jerarquicos y limpia bordes para mejorar lectura """
+""" aplica titulos y limpia bordes para mejorar lectura """
 def estilizar_grafico(ax, titulo, subtitulo=None, xlabel=None, ylabel=None):
     if subtitulo:
         ax.set_title(f"{titulo}\n", fontsize=13, fontweight="bold", pad=14, loc="left", color=COLOR_TEXTO_OSCURO)
