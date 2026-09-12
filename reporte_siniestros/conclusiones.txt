@@ -1,4 +1,5 @@
-CONCLUSIONES
+CONCLUSIONES DEL REPORTE
+
 1. Los accidentes registrados por año disminuyó un 27.5% entre 2015 (31,341) y 2020 (22,709). Sin embargo, entre 2015 y 2019 el número se mantuvo relativamente estable (+11.6%); la caída fuerte ocurre en 2020, coincidiendo con los confinamientos por COVID-19, por lo que no debe leerse como una tendencia sostenida de mejora.
 2. La hora con más accidentes es a las 14:00, concentrando 12,987 registros históricos. Esto suele coincidir con horas pico de tráfico en la ciudad de Bogotá.
 3. El día de la semana con más accidentes es el Viernes, con 31,537 registros.

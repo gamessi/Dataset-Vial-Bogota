@@ -1,17 +1,14 @@
-import sys
 import os
+import sys
 import warnings
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import pandas as pd
-
-warnings.filterwarnings(
-    "ignore",
-    category=pd.errors.SettingWithCopyWarning
-)
-
 import matplotlib
 
 matplotlib.use("Agg")
+warnings.filterwarnings("ignore", category=pd.errors.SettingWithCopyWarning)
 
 from src.config import CARPETA_SALIDA
 import src.datos as datos
@@ -26,17 +23,9 @@ import src.analysis.analisis_actores as analisis_actores
 import src.analysis.analisis_mapa_calor as analisis_mapa_calor
 import src.analysis.analisis_servicio as analisis_servicio
 
-
-
-
-
-
-
 def generar_reporte(ruta_archivo):
 
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
-
-    print("Cargando datos")
 
     try:
         siniestros, actores, vehiculos, hipotesis, diccionario = (
@@ -46,8 +35,6 @@ def generar_reporte(ruta_archivo):
     except datos.ErrorDatosEntrada as e:
         print(f"\nError: {e}\n")
         sys.exit(1)
-
-    print("Decodificando campos en base al diccionario de datos")
 
     siniestros, vehiculos, hipotesis = datos.decodificar(
         siniestros,
@@ -113,7 +100,7 @@ def generar_reporte(ruta_archivo):
         CARPETA_SALIDA
     )
 
-    _imprimir_y_guardar_conclusiones(conclusiones)
+    _guardar_conclusiones(conclusiones)
 
     print(
         f"\nreporte y gráficos guardados en la carpeta: "
@@ -121,37 +108,20 @@ def generar_reporte(ruta_archivo):
     )
 
 
-def _imprimir_y_guardar_conclusiones(conclusiones):
-
-    print("CONCLUSIONES AUTOMATICAS")
-
-    for i, c in enumerate(conclusiones, 1):
-        print(f"{i}. {c}")
-
-    ruta_txt = os.path.join(
-        CARPETA_SALIDA,
-        "conclusiones.txt"
-    )
+def _guardar_conclusiones(conclusiones):
+    """ guarda conclusiones exclusivamente en archivo de texto sin salida a consola """
+    ruta_txt = os.path.join(CARPETA_SALIDA, "conclusiones.txt")
 
     with open(ruta_txt, "w", encoding="utf-8") as f:
-
-        f.write(
-            "CONCLUSIONES\n"
-        )
-
+        f.write("CONCLUSIONES DEL REPORTE\n\n")
         for i, c in enumerate(conclusiones, 1):
             f.write(f"{i}. {c}\n")
 
 
+
 if __name__ == "__main__":
-
     if len(sys.argv) != 2:
-
-        print(
-            "Uso: python3 main.py "
-            "siniestros_viales_consolidados_bogota_dc.xlsx"
-        )
-
+        print("Uso: python src/main.py <data/parquet | archivo.xlsx>")
         sys.exit(1)
 
     generar_reporte(sys.argv[1])
