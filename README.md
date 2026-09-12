@@ -43,21 +43,20 @@ python src/main.py data/siniestros_viales_consolidados_bogota_dc.xlsx
 
 Los archivos se generan en la carpeta `reporte_siniestros/`:
 
-| Archivo | Análisis |
-|---|---|
-| `tarjetas_metricas.png` | Indicadores generales (dashboard) |
-| `tendencia_anual.png` | Evolución de siniestros por año |
-| `patron_horario.png` | Distribución por hora del día |
-| `patron_dia_semana.png` | Distribución por día de la semana |
-| `top_localidades.png` | Localidades con más siniestros |
-| `mapa_calor_localidades.png` | Tasa de siniestros por localidad (mapa) |
-| `top_causas.png` | Causas más frecuentes |
-| `top_vehiculos.png` | Vehículos más involucrados |
-| `actores_afectados.png` | Personas afectadas por condición |
-| `distribucion_edad.png` | Distribución de edades de víctimas |
-| `distribucion_sexo_fallecidos.png` | Fallecidos por sexo |
-| `analisis_servicio.png` | Siniestros por tipo de servicio vehicular |
-| `conclusiones.txt` | Hallazgos principales generados automáticamente |
+| Archivo                       | Análisis                                        |
+| `tarjetas_metricas.png`       | Dasboard                                        |
+| `tendencia_anual.png`         | Evolución de siniestros por año                 |
+| `patron_horario.png`          | Distribución por hora del día                   |
+| `patron_dia_semana.png`       | Distribución por día de la semana               |
+| `top_localidades.png`         | Localidades con más siniestros                  |
+| `mapa_calor_localidades.png`  | Mapa de calor de sinestros por localidad        |
+| `top_causas.png`              | Causas más frecuentes                           |
+| `top_vehiculos.png`           | Vehículos más involucrados                      |
+| `actores_afectados.png`       | Personas afectadas por rol                      |
+| `distribucion_edad.png`       | Distribución de edades de las víctimas          |
+| `distribucion_fallecidos.png` | Fallecidos por genéro                           |
+| `analisis_servicio.png`       | Siniestros por tipo de servicio vehicular       |
+| `conclusiones.txt`            | Hallazgos principales generados automáticamente |
 
 ---
 
@@ -90,7 +89,8 @@ Dataset-Vial-Bogota/
 │       └── analisis_sexo.py
 │
 ├── reporte_siniestros/
-│   └── *.png / conclusiones.txt
+│   ├── conclusiones.txt   
+│   └── *.png conclusiones
 │
 ├── requirements.txt
 ├── .gitignore
@@ -104,11 +104,11 @@ Dataset-Vial-Bogota/
 
 | Librería | Uso |
 |---|---|
-| **Pandas** | Procesamiento y análisis de datos |
-| **Matplotlib** | Generación de gráficos |
-| **Seaborn** | Visualización estadística |
-| **GeoPandas** | Mapas de calor por localidad |
-| **PyArrow** | Lectura/escritura de archivos Parquet |
+| **Pandas**    | Procesamiento y análisis de datos     |
+| **Matplotlib**| Generación de gráficos                |
+| **Seaborn**   | Visualización estadística             |
+| **GeoPandas** | Mapas de calor                        |
+| **PyArrow**   | Lectura/escritura de archivos Parquet |
 
 ---
 
@@ -121,4 +121,4 @@ Dataset-Vial-Bogota/
 
 ## Autor
 
-**Camilo Gámez** — *Estudiante de Ingeniería de Sistemas*
+**Camilo Gámez** — **Estudiante de Ingeniería de Sistemas**
