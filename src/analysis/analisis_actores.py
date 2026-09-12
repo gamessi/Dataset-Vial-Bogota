@@ -1,5 +1,3 @@
-""" analisis de actores viales: roles, demografia y vulnerabilidad """
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -12,9 +10,8 @@ from src.graficos import (
     COLOR_AMARILLO
 )
 
-
+""" procesa datos de victimas y genera graficos """
 def analizar(actores, carpeta):
-    """ procesa datos de victimas y genera graficos didacticos de impacto """
     graves = actores[actores["ESTADO"].isin(["HERIDO", "MUERTO"])]
 
     conclusiones = [
@@ -31,26 +28,23 @@ def analizar(actores, carpeta):
 
     return conclusiones
 
-
+""" identifica el rol con mayor numero de personas afectadas """
 def _condicion_mas_afectada(graves):
-    """ identifica el rol con mayor numero de personas afectadas """
     por_condicion = graves["CONDICION"].value_counts()
     return (
         f"Entre las personas heridas o fallecidas la condición más frecuente es "
         f"'{por_condicion.index[0].title()}' ({por_condicion.iloc[0]:,} casos), lo que indica el grupo más vulnerable en los siniestros.")
 
-
+""" calcula que condicion tiene la mayor letalidad  """
 def _tasa_mortalidad_por_condicion(actores):
-    """ calcula que condicion tiene la mayor letalidad relativa """
     muertos = actores[actores["ESTADO"] == "MUERTO"]["CONDICION"].value_counts()
     total = actores["CONDICION"].value_counts()
     tasa = (muertos / total * 100).dropna().sort_values(ascending=False)
     return (
         f"'{tasa.index[0].title()}' tiene la tasa de mortalidad más alta entre actores viales ({tasa.iloc[0]:.2f}%) de los registros de esa condición terminan en muerte.")
 
-
+""" determina si existe concentracion de genero en fallecidos """
 def _mayoria_sexo_fallecidos(actores):
-    """ determina si existe concentracion de genero en fallecidos """
     muertos_sexo = actores[actores["ESTADO"] == "MUERTO"]["SEXO"].value_counts()
     if len(muertos_sexo) == 0:
         return None
@@ -61,9 +55,8 @@ def _mayoria_sexo_fallecidos(actores):
         f"El {proporcion * 100:.1f}% de las víctimas mortales son de sexo "
         f"'{muertos_sexo.index[0].lower()}'.")
 
-
+""" genera grafico de actores viales heridos o fallecidos """
 def _graficar_actores_afectados(graves, carpeta):
-    """ genera grafico didactico de actores viales heridos o fallecidos """
     conteo = graves["CONDICION"].value_counts()
     total = conteo.sum()
     top = conteo.index[0]
@@ -98,10 +91,8 @@ def _graficar_actores_afectados(graves, carpeta):
 
     guardar("actores_afectados.png", carpeta)
 
-
-
+""" genera histograma con mediana y rango critico de edad """
 def _graficar_distribucion_edad(graves, carpeta):
-    """ genera histograma didactico con mediana y rango critico de edad """
     graves = graves.copy()
     graves["EDAD"] = pd.to_numeric(graves["EDAD"], errors="coerce")
     edades_validas = graves[(graves["EDAD"] > 0) & (graves["EDAD"] < 100)]
