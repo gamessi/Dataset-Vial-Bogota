@@ -1,5 +1,3 @@
-""" analisis de actores viales: roles, demografia y vulnerabilidad """
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -11,9 +9,8 @@ from src.graficos import (
     COLOR_VERDE
 )
 
-
+""" procesa datos de victimas """
 def analizar(actores, carpeta):
-    """ procesa datos de victimas y genera graficos didacticos """
     graves = actores[actores["ESTADO"].isin(["HERIDO", "MUERTO"])]
 
     conclusiones = [
@@ -26,17 +23,16 @@ def analizar(actores, carpeta):
 
     return conclusiones
 
-
+""" identifica el rol con mayor numero de personas afectadas """
 def _condicion_mas_afectada(graves):
-    """ identifica el rol con mayor numero de personas afectadas """
+
     por_condicion = graves["CONDICION"].value_counts()
     return (
         f"Entre las personas heridas o fallecidas la condición más frecuente es "
         f"'{por_condicion.index[0].title()}' ({por_condicion.iloc[0]:,} casos), lo que indica el grupo más vulnerable en los siniestros.")
 
-
+""" calcula letalidad sobre victimas afectadas para evitar sesgo de conductores ilesos """
 def _tasa_mortalidad_por_condicion(actores):
-    """ calcula letalidad sobre victimas afectadas para evitar sesgo de conductores ilesos """
     graves = actores[actores["ESTADO"].isin(["HERIDO", "MUERTO"])]
     muertos = graves[graves["ESTADO"] == "MUERTO"]["CONDICION"].value_counts()
     total_victimas = graves["CONDICION"].value_counts()
@@ -44,9 +40,8 @@ def _tasa_mortalidad_por_condicion(actores):
     return (
         f"'{tasa.index[0].title()}' tiene la tasa de letalidad más alta entre víctimas impactadas ({tasa.iloc[0]:.2f}% de sus víctimas fallecen), seguido de '{tasa.index[1].title()}' ({tasa.iloc[1]:.2f}%).")
 
-
+""" genera grafico de actores viales heridos o fallecidos """
 def _graficar_actores_afectados(graves, carpeta):
-    """ genera grafico didactico de actores viales heridos o fallecidos """
     conteo = graves["CONDICION"].value_counts()
     total = conteo.sum()
     top = conteo.index[0]
@@ -81,9 +76,8 @@ def _graficar_actores_afectados(graves, carpeta):
 
     guardar("actores_afectados.png", carpeta)
 
-
+""" genera histograma  """
 def _graficar_distribucion_edad(graves, carpeta):
-    """ genera histograma didactico con mediana y rango critico incluyendo menores """
     graves = graves.copy()
     graves["EDAD"] = pd.to_numeric(graves["EDAD"], errors="coerce")
     edades_validas = graves[(graves["EDAD"] >= 0) & (graves["EDAD"] < 100)]

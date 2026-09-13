@@ -1,5 +1,3 @@
-""" analisis geografico: concentracion de siniestros y letalidad por localidad """
-
 import matplotlib.pyplot as plt
 from src.graficos import (
     guardar,
@@ -10,9 +8,8 @@ from src.graficos import (
 )
 from src.config import MIN_ACCIDENTES_PARA_TASA
 
-
+""" procesa analisis de siniestros por localidad y genera graficos didacticos """
 def analizar(siniestros, carpeta):
-    """ procesa analisis de siniestros por localidad y genera graficos didacticos """
     conclusiones = []
 
     por_localidad = siniestros["CODIGO_LOCALIDAD_DESC"].value_counts()
@@ -59,9 +56,8 @@ def analizar(siniestros, carpeta):
 
     return conclusiones
 
-
+""" calcula la localidad con mayor proporcion de fallecidos """
 def _localidad_mas_letal(siniestros, por_localidad):
-    """ calcula la localidad con mayor proporcion de fallecidos """
     con_muestra_suficiente = por_localidad[por_localidad >= MIN_ACCIDENTES_PARA_TASA].index
 
     fatales_por_loc = siniestros[siniestros["GRAVEDAD_DESC"] == "Con Muertos"]["CODIGO_LOCALIDAD_DESC"].value_counts()
@@ -73,5 +69,3 @@ def _localidad_mas_letal(siniestros, por_localidad):
         f"'{tasa.index[0]}' tiene la mayor proporción de accidentes con muertos respecto a su total "
         f"{tasa.iloc[0]:.2f}% de sus accidentes son fatales."
     )
-
-

@@ -17,7 +17,7 @@ def analizar(vehiculos, carpeta):
 
     fig, ax = plt.subplots(figsize=(11, 6.5))
 
-    """ genera grafico con etiquetas formateadas y espacio despejado """
+    """ genera grafico con etiquetas """
     etiquetas_leyenda = [f"{k}: {v:,} ({v/total_vehiculos*100:.1f}%)" for k, v in top_clase.items()]
 
     wedges, texts, autotexts = ax.pie(
@@ -31,7 +31,7 @@ def analizar(vehiculos, carpeta):
 
     plt.setp(autotexts, size=9, weight="bold", color="white")
 
-    """ cuadro de leyenda lateral para evitar mezclar texto sobre sectores """
+    """ cuadro lateral """
     ax.legend(
         wedges,
         etiquetas_leyenda,
@@ -60,7 +60,6 @@ def analizar(vehiculos, carpeta):
     top1 = top6.index[0]
     top2 = top6.index[1]
     ax.set_title("DISTRIBUCIÓN DE TIPOS DE VEHÍCULO INVOLUCRADOS\n", fontsize=13.5, fontweight="bold", pad=14, color="#24292F", loc="center")
-    fig.text(0.5, 0.94, f"'{top1}' y '{top2}' concentran la gran mayoría de incidentes en la ciudad", fontsize=10, color="#57606A", ha="center")
     ax.axis("equal")
 
     guardar("top_vehiculos.png", carpeta)

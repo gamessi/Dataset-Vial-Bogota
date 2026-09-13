@@ -1,5 +1,3 @@
-""" analisis temporal: evolucion anual, hora y dia de la semana """
-
 import matplotlib.pyplot as plt
 from src.graficos import (
     guardar,
@@ -22,18 +20,16 @@ DIAS_ES = {
 }
 ORDEN_DIAS = list(DIAS_ES.keys())
 
-
+""" genera conclusiones y graficos de patrones temporales """
 def analizar(siniestros, carpeta):
-    """ genera conclusiones y graficos de patrones temporales """
     conclusiones = []
     conclusiones.append(_evolucion_anual(siniestros, carpeta))
     conclusiones.append(_patron_horario(siniestros, carpeta))
     conclusiones.append(_patron_dia_semana(siniestros, carpeta))
     return conclusiones
 
-
+""" analiza y grafica la serie temporal de siniestros por año """
 def _evolucion_anual(siniestros, carpeta):
-    """ analiza y grafica la serie temporal de siniestros por anio """
     por_anio = siniestros.groupby("ANIO").size()
     fatales = siniestros[siniestros["GRAVEDAD_DESC"] == "Con Muertos"].groupby("ANIO").size()
 
@@ -96,9 +92,8 @@ def _evolucion_anual(siniestros, carpeta):
         + nota_covid
     )
 
-
+""" analiza y grafica los accidentes por franja horaria """
 def _patron_horario(siniestros, carpeta):
-    """ analiza y grafica la distribucion de accidentes por franja horaria """
     por_hora = siniestros["HORA_NUM"].value_counts().sort_index()
     hora_pico = por_hora.idxmax()
     max_casos = por_hora.max()
@@ -138,9 +133,8 @@ def _patron_horario(siniestros, carpeta):
         f"registros históricos. Esto suele coincidir con horas pico de tráfico en la ciudad de Bogotá."
     )
 
-
+""" analiza y grafica los accidentes por dia de la semana """
 def _patron_dia_semana(siniestros, carpeta):
-    """ analiza y grafica el volumen de accidentes por dia de la semana """
     por_dia = siniestros["DIA_SEMANA"].value_counts().reindex(ORDEN_DIAS)
     nombres_es = [DIAS_ES[d] for d in por_dia.index]
     dia_pico = DIAS_ES[por_dia.idxmax()]

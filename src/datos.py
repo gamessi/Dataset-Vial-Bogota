@@ -1,16 +1,12 @@
-""" carga y transformacion de datos viales optimizados con parquet """
-
 import os
 import pandas as pd
 
-
+""" excepcion para errores de lectura o formato de datos """
 class ErrorDatosEntrada(Exception):
-    """ excepcion para errores de lectura o formato de datos """
     pass
 
-
+""" lee las 5 tablas del conjunto de datos en formato parquet o excel """
 def cargar_datos(ruta):
-    """ lee las 5 tablas del conjunto de datos en formato parquet o excel """
     if not os.path.exists(ruta):
         raise ErrorDatosEntrada(f"la ruta especificada no existe: '{ruta}'")
 
@@ -61,9 +57,8 @@ def cargar_datos(ruta):
 
     raise ErrorDatosEntrada(f"formato de archivo no soportado: '{ruta}'")
 
-
+""" extrae del diccionario para una hoja y campo """
 def _mapa_codigos(diccionario, hoja, campo):
-    """ extrae del diccionario un dict codigo a descripcion para una hoja y campo """
     sub = diccionario[(diccionario["HOJA"] == hoja) & (diccionario["CAMPO"] == campo)]
     m = {}
     for cod, desc in zip(sub["CODIGO"], sub["DESCRIPCION"]):
@@ -79,9 +74,10 @@ def _mapa_codigos(diccionario, hoja, campo):
             pass
     return m
 
-
-def decodificar(siniestros, vehiculos, hipotesis, diccionario):
     """ traduce columnas codificadas a texto legible y anade columnas temporales """
+
+""" traduce columnas codificadas a texto legible y añade columnas temporales """
+def decodificar(siniestros, vehiculos, hipotesis, diccionario):
     for campo in ["GRAVEDAD", "CLASE", "CHOQUE", "OBJETO_FIJO", "CODIGO_LOCALIDAD", "DISENO_LUGAR"]:
         siniestros[f"{campo}_DESC"] = siniestros[campo].map(_mapa_codigos(diccionario, "SINIESTROS", campo))
 

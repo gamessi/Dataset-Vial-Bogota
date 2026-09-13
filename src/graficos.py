@@ -226,7 +226,7 @@ def generar_tarjetas(metricas, carpeta):
 
     """ titulo superior del tablero """
     fig.suptitle(
-        "TABLERO EJECUTIVO DE SINIESTRALIDAD VIAL - BOGOTÁ D.C.",
+        "DASHBOARD DE SINIESTRALIDAD VIAL - BOGOTÁ D.C.",
         fontsize=16,
         fontweight="bold",
         color=COLOR_TEXTO,

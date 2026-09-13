@@ -1,5 +1,3 @@
-""" analisis de causas frecuentes de siniestros viales """
-
 import matplotlib.pyplot as plt
 from src.graficos import (
     guardar,
@@ -8,9 +6,8 @@ from src.graficos import (
     COLOR_ROJO
 )
 
-
+""" genera visualizacion de las causas de accidentes """
 def analizar(hipotesis, carpeta):
-    """ genera visualizacion didactica del top de causas de accidentes """
     top_causas = hipotesis["CAUSA_DESC"].value_counts().head(10)
     total_hipotesis = len(hipotesis)
 
