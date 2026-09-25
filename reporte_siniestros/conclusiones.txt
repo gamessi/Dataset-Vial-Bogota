@@ -13,3 +13,5 @@ CONCLUSIONES DEL REPORTE
 11. En el mapa por localidad, 'Kennedy' concentra la mayor cantidad de siniestros con 22,282 casos.
 12. El 56.9% de los vehículos involucrados en siniestros son de servicio 'Particular' (202,405 casos).
 13. De 5,277 vehículos que huyeron tras siniestro, 2,781 (52.7%) no tienen servicio identificado por fuga instantánea. Entre los identificados, servicio 'Oficial' registra 21.5% de fuga.
+14. El corredor con mayor accidentalidad es 'KR 80-CL 2 51', con 213 siniestros.
+15. El segundo corredor mas accidentado es 'AV BOYACA-CL 80 02', con 156 siniestros.

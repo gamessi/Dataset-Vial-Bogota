@@ -1,0 +1,19 @@
+spec_globs:
+  - docs/**/*.md
+  - specs/**/*.md
+code_globs:
+  - src/**/*
+  - app/**/*
+  - packages/**/*
+test_globs:
+  - tests/**/*
+  - **/*test.*
+  - **/*spec.*
+ignore_globs:
+  - .git/**
+  - .venv/**
+  - node_modules/**
+  - dist/**
+  - build/**
+require_code_ref: true
+require_test_ref: true

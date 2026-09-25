@@ -57,6 +57,7 @@ Los archivos se generan en la carpeta `reporte_siniestros/`:
 | `distribucion_edad.png`       | Distribución de edades de las víctimas          |
 | `distribucion_fallecidos.png` | Fallecidos por genéro                           |
 | `analisis_servicio.png`       | Siniestros por tipo de servicio vehicular       |
+| `corredores_viales.png`       | Corredores viales con mayor accidentalidad |
 | `conclusiones.txt`            | Hallazgos principales generados automáticamente |
 
 ---
@@ -87,7 +88,8 @@ Dataset-Vial-Bogota/
 │       ├── analisis_actores.py
 │       ├── analisis_mapa_calor.py
 │       ├── analisis_servicio.py
-│       └── analisis_sexo.py
+│       ├── analisis_sexo.py
+│       └── analisis_corredores.py
 │
 ├── reporte_siniestros/
 │   ├── conclusiones.txt   
